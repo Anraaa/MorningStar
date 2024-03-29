@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clickjacking Example</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Clickjacking Example</h1>
+
+    <!-- Tombol palsu yang akan menutupi tombol sebenarnya -->
+    <button id="fakeButton" onclick="clickLegitimateButton()">Click Here</button>
+
+    <!-- Tombol sebenarnya yang sebenarnya disembunyikan -->
+    <button id="legitimateButton" onclick="location.href='https://www.youtube.com/';">Tombol Rahasia</button>
+</div>
+
+<script>
+    function clickLegitimateButton() {
+        document.getElementById("legitimateButton").click();
+    }
+</script>
+
+</body>
+</html>
