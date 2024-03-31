@@ -139,6 +139,10 @@ input {
               -3px -3px 3px #1c2739;
 }
 
+.dark h2 {
+  color: #ED2B2A
+}
+
 .dark .toggle .bx-sun {
   margin-right: 47.5px;
   color: #fafafa;
@@ -155,11 +159,13 @@ input {
 }
 
 .dark .btn-group button:nth-child(1) {
-  background: #818FB4;
+  border: 2px solid #ED2B2A;
+  background: #ED2B2A;
   color: #fafafa;
 }
 
 .dark .btn-group button:nth-child(2) {
   background: #fafafa;
-  color: #818FB4  ;
+  border: 2px solid #ED2B2A;  
+  color: #ED2B2A  ;
 }
