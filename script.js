@@ -35,5 +35,6 @@ yesBtn.addEventListener("click", () => {
     question.innerHTML = "Aaaaaaaaaa, I Like You too!!! :)";
     gif.src = "https://media.tenor.com/PdSA8dcotSsAAAAC/honkai-honkai-star-rail.gif";
     // Hide the "No" button
+    yesBtn.style.display = "none";
     noBtn.style.display = "none";
 });
