@@ -1,6 +1,6 @@
-### NOTES
+## NOTES
 
-## Sauce
+### Sauce
 
 button toggle theme : https://github.com/hosseinnabi-ir/Light-Dark-Mode-Toggle-with-JavaScript
 
