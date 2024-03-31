@@ -4,9 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message For You</title>
-    <link rel="stylesheet" href="style.css">
     <!-- BoxIcons v2.1.2 -->
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: whitesmoke;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      
+      .toggle-wrapper {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .toggle-checkbox {
+        display: none;
+      }
+      
+      .gif {
+        height: 100%;
+        width: 100%;
+      }
+      
+      h2 {
+        text-align: center;
+        font-size: 1.5em;
+        color: #e94d58;
+        margin: 15px 0;
+      }
+      
+      .btn-group {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+      
+      button {
+        position: absolute;
+        width: 150px;
+        height: inherit;
+        color: white;
+        font-size: 1.2em;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        box-shadow: 0 2px 4px gray;
+        border: 2px solid #e94d58;
+        font-size: 1.2em;
+      }
+      button:nth-child(1) {
+        margin-left: -200px;
+        background: #e94d58;
+      }
+      button:nth-child(2){
+          margin-right: -200px;
+          background: white;
+          color: #e94d58;
+      }
+      
+      /* Dark Mode */
+      .toggle {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 150px; /* sesuaikan ukuran dengan tombol Yes dan No */
+        height: 50px; /* sesuaikan ukuran dengan tombol Yes dan No */
+        border-radius: 25px; /* setengah dari tinggi tombol */
+        transition: .2s;
+      }
+      
+      .toggle i {
+        width: 50%;
+        line-height: 50px; /* sesuaikan dengan tinggi tombol */
+        text-align: center;
+        font-size: 20px; /* sesuaikan dengan ukuran teks tombol Yes dan No */
+        z-index: 1;
+      }
+      
+      .toggle .ball {
+        position: absolute;
+        width: 45px; /* sesuaikan dengan tinggi tombol */
+        height: 45px; /* sesuaikan dengan tinggi tombol */
+        margin: 2.5px; /* sesuaikan dengan jarak antara ikon dan batas tombol */
+        border-radius: 50%;
+        transition: .3s ease-out;
+      }
+      
+      input {
+        display: none;
+      }
+      
+      /* Light Mode */
+      
+      .light {
+        background: #fafafa;
+      }
+      
+      .light .toggle {
+        background: linear-gradient(145deg, #e1e1e1, #fff);
+        box-shadow: 3px 3px 4px #e6e6e6,
+                    -3px -3px 4px #ffffff;
+      }
+      
+      .light .toggle .bxs-sun {
+        color: #fafafa;
+        margin-right: 47.5px;
+      }
+      
+      .light .toggle .bx-moon {
+        margin-left: 4px;
+        color: #151d2a;
+      }
+      
+      .light .toggle .ball {
+        background: #151d2a;
+      }
+      
+      /* Dark Mode */
+      
+      /* Dark Mode */
+      .dark {
+        background: #151d2a;
+      }
+      
+      .dark .toggle {
+        background: #151d2a;
+        box-shadow: 3px 3px 3px #0e131b,
+                    -3px -3px 3px #1c2739;
+      }
+      
+      .dark h2 {
+        color: #ED2B2A
+        
+      }
+      
+      .dark .toggle .bx-sun {
+        margin-right: 47.5px;
+        color: #fafafa;
+      }
+      
+      .dark .toggle .bxs-moon {
+        margin-left: 4px;
+        color: #151d2a;
+      }
+      
+      .dark .toggle .ball {
+        background: #fafafa;
+        transform: translateX(100px); /* sesuaikan dengan lebar tombol */
+      }
+      
+      .dark .btn-group button:nth-child(1) {
+        border: 2px solid #ED2B2A;
+        background: #ED2B2A;
+        color: #fafafa;
+      }
+      
+      .dark .btn-group button:nth-child(2) {
+        background: #fafafa;
+        border: 2px solid #ED2B2A;  
+        color: #ED2B2A  ;
+      }
+
+      .next-page-btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #ff74a4;
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        margin-left: 13px;
+        margin-top: 10px; /* Tambahkan margin-top */
+      }
+      
+      .next-page-btn:hover {
+        background-color: #e94d58;
+      }
+
+      .next-page-btn,
+.prev-page-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ff74a4;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.next-page-btn {
+    right: 20px; /* Atur posisi tombol ">" di kanan halaman */
+}
+
+.prev-page-btn {
+    left: 20px; /* Atur posisi tombol "<" di kiri halaman */
+}
+
+.next-page-btn:hover,
+.prev-page-btn:hover {
+    background-color: #e94d58; /* Warna saat tombol dihover */
+}
+      
+    </style>
 </head>
 <body class="light">
     <div class="wrapper">
@@ -24,7 +245,54 @@
             <button class="Yes-btn">Yes</button>
             <button class="No-btn">No</button>
         </div>
+        <a href="page2.html" class="next-page-btn">&#8250;</a> <!-- Tombol Next Page -->
+        <a href="index.html" class="prev-page-btn">&#8249;</a> <!-- Tombol Previous Page -->
     </div>
-    <script src="script.js"></script>
+    <script>
+      const body = document.body;
+const toggle = document.getElementById("toggle");
+const sunIcon = document.querySelector(".toggle .bxs-sun");
+const moonIcon = document.querySelector(".toggle .bx-moon");
+const noBtn = document.querySelector(".No-btn");
+
+toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+        body.classList.add("dark");
+        sunIcon.classList.remove("active");
+        moonIcon.classList.add("active");
+    } else {
+        body.classList.remove("dark");
+        sunIcon.classList.add("active");
+        moonIcon.classList.remove("active");
+    }
+});
+
+noBtn.addEventListener("mouseover", () => {
+  const noBtnRect = noBtn.getBoundingClientRect();
+  const maxX = window.innerWidth - noBtnRect.width;
+  const maxY = window.innerHeight - noBtnRect.height;
+
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+
+  noBtn.style.left = randomX + "px";
+  noBtn.style.top = randomY + "px";
+});
+
+const yesBtn = document.querySelector(".Yes-btn"); // Corrected class name
+yesBtn.addEventListener("click", () => {
+    const question = document.querySelector(".question");
+    const gif = document.querySelector(".gif");
+    question.innerHTML = "Aaaaaaaaaa, I Like You too!!! :)";
+    gif.src = "https://media.tenor.com/PdSA8dcotSsAAAAC/honkai-honkai-star-rail.gif";
+    // Hide the "No" button
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+});
+
+const nextPageBtn = document.querySelector(".next-page-btn");
+    nextPageBtn.addEventListener("click"), () => {
+      window.location.href = "page2.html"};
+    </script>
 </body>
 </html>
