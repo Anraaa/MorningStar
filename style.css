@@ -155,11 +155,11 @@ input {
 }
 
 .dark .btn-group button:nth-child(1) {
-  background: #e94d58;
+  background: #818FB4;
   color: #fafafa;
 }
 
 .dark .btn-group button:nth-child(2) {
   background: #fafafa;
-  color: #e94d58;
+  color: #818FB4;
 }
