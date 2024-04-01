@@ -8,8 +8,4 @@
 
 鼠标悬停项目的来源 : [Moocchi](https://github.com/Moocchi/moocchi.github.io) 
 
-<<<<<<< HEAD
-在这里的实时网站结果: https://anraaa.github.io/MorningStar/
-=======
-在这里的实时网站结果 : https://anraaa.github.io/MorningStar/
->>>>>>> ad40333 (fresh from the oven)
+在这里的实时网站结果: https://anraaa.github.io/MorningStar/index.html
